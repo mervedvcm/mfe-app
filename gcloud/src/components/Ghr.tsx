@@ -35,7 +35,7 @@ export default () => {
     () => {
       if (location.pathname.startsWith(ghrBasename)) {
         window.dispatchEvent(
-          new CustomEvent("[shell] navigated", {
+          new CustomEvent("[gcloud] navigated", {
             detail: location.pathname.replace(ghrBasename, ""),
           })
         );

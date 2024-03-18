@@ -30,12 +30,12 @@ export default () => {
     };
   }, [location]);
 
-  // Listen for shell location changes and dispatch a notification.
+  // Listen for gcloud location changes and dispatch a notification.
   useEffect(
     () => {
       if (location.pathname.startsWith(gcrmBasename)) {
         window.dispatchEvent(
-          new CustomEvent("[shell] navigated", {
+          new CustomEvent("[gcloud] navigated", {
             detail: location.pathname.replace(gcrmBasename, ""),
           })
         );
