@@ -2,6 +2,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const Dotenv = require('dotenv-webpack');
 const deps = require("./package.json").dependencies;
+const devDeps = require("./package.json").devDependencies;
 module.exports = (_, argv) => ({
   output: {
     publicPath: "http://localhost:8082/",
@@ -45,7 +46,7 @@ module.exports = (_, argv) => ({
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        './GhrIndex': './src/index',
+        './GhrIndex': './src/bootstrap',
       },
       shared: {
         ...deps,

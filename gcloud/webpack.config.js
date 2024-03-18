@@ -2,6 +2,8 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const Dotenv = require('dotenv-webpack');
 const deps = require("./package.json").dependencies;
+const devDeps = require("./package.json").devDependencies;
+
 module.exports = (_, argv) => ({
   output: {
     publicPath: "http://localhost:8080/",
@@ -50,6 +52,7 @@ module.exports = (_, argv) => ({
       exposes: {},
       shared: {
         ...deps,
+        ...devDeps,
         react: {
           singleton: true,
           requiredVersion: deps.react,
