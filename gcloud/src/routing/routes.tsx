@@ -1,15 +1,15 @@
 import React, { lazy, Suspense } from "react";
 import { Navigate, RouteObject } from "react-router-dom";
 import { ghrRoutingPrefix, gcrmRoutingPrefix } from "./constants";
-import CommonLayout from "../components/CommonLayout";
+import CommonLayout from "../commonComponents/Layout";
 import Dashboard from "../pages/Dashboard";
 import Landing from "../pages/Landing";
 import Login from "../pages/Login";
 
 const path = localStorage.getItem('companyName');
 
-const GhrLazy = lazy(() => import("../components/Ghr"));
-const GcrmLazy = lazy(() => import("../components/Gcrm"));
+const GhrLazy = lazy(() => import("../commonComponents/Ghr"));
+const GcrmLazy = lazy(() => import("../commonComponents/Gcrm"));
 
 export const routes: RouteObject[] = [
   {
@@ -17,7 +17,7 @@ export const routes: RouteObject[] = [
     element: <Landing />,
   },
   {
-    path: '/:companyName/login',
+    path: '/login',
     element: <Login />,
   },
   {

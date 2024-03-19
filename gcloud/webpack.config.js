@@ -16,6 +16,9 @@ module.exports = (_, argv) => ({
   devServer: {
     port: 8080,
     historyApiFallback: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
   },
 
   module: {
@@ -47,7 +50,8 @@ module.exports = (_, argv) => ({
       filename: "remoteEntry.js",
       remotes: {
         gcrm: 'gcrm@http://localhost:8081/remoteEntry.js',
-        ghr: 'ghr@http://localhost:8082/remoteEntry.js',   
+        ghr: 'ghr@http://localhost:8082/remoteEntry.js', 
+        store: 'store@http://localhost:3100/remoteEntry.js',  
       },
       exposes: {},
       shared: {
