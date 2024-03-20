@@ -3,7 +3,8 @@ import { mount } from "gcrm/GcrmIndex";
 import { gcrmRoutingPrefix } from "../routing/constants";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const gcrmBasename = `/${gcrmRoutingPrefix}`;
+const path = localStorage.getItem('companyName');
+const gcrmBasename = `/${path}/${gcrmRoutingPrefix}`;
 
 export default () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -15,7 +16,7 @@ export default () => {
     const gcrmNavigationEventHandler = (event: Event) => {
       const pathname = (event as CustomEvent<string>).detail;
       const newPathname = `${gcrmBasename}${pathname}`;
-      if (newPathname === location.pathname) {
+      if (newPathname === location.pathname + '/') {
         return;
       }
       navigate(newPathname);
@@ -46,7 +47,7 @@ export default () => {
 
   const isFirstRunRef = useRef(true);
   const unmountRef = useRef(() => {});
-  // Mount ghr MFE
+  // Mount gcrm MFE
   useEffect(
     () => {
       if (!isFirstRunRef.current) {

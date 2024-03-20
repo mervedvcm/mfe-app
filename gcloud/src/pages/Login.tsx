@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-// import Cookies from 'js-cookie';
+import { useLoginMutation, setCredentials } from 'store/store';
+import { useDispatch } from 'react-redux';
+import Cookies from 'js-cookie';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -18,23 +20,52 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 const defaultTheme = createTheme();
 
 export default function Login() {
+  const params = useParams();
+  // const path = localStorage.getItem('companyName');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [login] = useLoginMutation();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const companyName = data.get('companyName') as string | null;
-    const username = data.get('username') as string | null;
-    const password = data.get('password') as string | null;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    if (username === 'user' && password === 'pass'  && companyName) {
-      localStorage.setItem('companyName', companyName);
-     
-      navigate(`/${companyName}/dashboard`);
-    } else {
-      alert('Invalid username or password.');
+    try {
+      const res = await login({
+        userNameOrEmail: 'ahmet.aydar@gcode.com.tr',
+        password: '1234',
+      });
+
+      if ('data' in res) {
+        console.log(res.data.token);
+        dispatch(setCredentials(res.data.token));
+        if (params.companyName !== undefined) {
+          localStorage.setItem('companyName', params.companyName);
+        }
+        Cookies.set('accessToken', res.data.token.accessToken);
+        Cookies.set('refreshToken', res.data.token.refreshToken);
+        navigate(`/${params.companyName}/dashboard`);
+      } else {
+        console.error('Error occurred during login:', res.error);
+      }
+    } catch (error) {
+      console.error('An error occurred during login:', error);
     }
   };
+ 
+  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
+  //   const companyName = data.get('companyName') as string | null;
+  //   const username = data.get('username') as string | null;
+  //   const password = data.get('password') as string | null;
+
+  //   if (username === 'user' && password === 'pass'  && companyName) {
+  //     localStorage.setItem('companyName', companyName);
+  //     navigate(`/${companyName}/dashboard`);
+  //   } else {
+  //     alert('Invalid username or password.');
+  //   }
+  // };
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -55,20 +86,11 @@ export default function Login() {
             Sign in
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="companyName"
-              label="Company Name"
-              name="companyName"
-              autoFocus
-            />
             <TextField
               margin="normal"
               required
               fullWidth
-              id="username"
+              id="userNameOrEmail"
               label="username"
               name="username"
               autoComplete="username"

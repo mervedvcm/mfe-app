@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { Navigate, RouteObject } from "react-router-dom";
 import { ghrRoutingPrefix, gcrmRoutingPrefix } from "./constants";
-import CommonLayout from "../commonComponents/Layout";
+import Layout from "../commonComponents/Layout";
 import Dashboard from "../pages/Dashboard";
 import Landing from "../pages/Landing";
 import Login from "../pages/Login";
@@ -17,15 +17,15 @@ export const routes: RouteObject[] = [
     element: <Landing />,
   },
   {
-    path: '/login',
+    path: '/:companyName/login',
     element: <Login />,
   },
   {
     path: '/:companyName/dashboard',
     element: (
-      <CommonLayout>
+      <Layout>
         <Dashboard />
-      </CommonLayout>
+      </Layout>
     ),
   },
   {
