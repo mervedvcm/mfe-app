@@ -1,19 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import 'gcrm/GcrmIndex';
-import 'ghr/GhrIndex'; 
-import './index.scss';
+import React from "react";
+import "../public/css/index.scss";
+import { Router } from "./routing/Router";
 
-const App = () => (
-  <div className='container'>
-    <strong>Host</strong>
-    <div id='gcrm-dev'></div>
-    <div id='ghr-dev'></div>
-  </div>
+export const App = () => (
+  <Router />
 );
 
-
-const rootElement = document.getElementById('root')
-if (!rootElement) throw new Error('Failed to find the root element')
-const root = ReactDOM.createRoot(rootElement as HTMLElement)
-root.render(<App />)

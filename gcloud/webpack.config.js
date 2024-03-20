@@ -2,6 +2,8 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const Dotenv = require('dotenv-webpack');
 const deps = require("./package.json").dependencies;
+const devDeps = require("./package.json").devDependencies;
+
 module.exports = (_, argv) => ({
   output: {
     publicPath: "http://localhost:8080/",
@@ -14,6 +16,9 @@ module.exports = (_, argv) => ({
   devServer: {
     port: 8080,
     historyApiFallback: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
   },
 
   module: {
@@ -45,11 +50,13 @@ module.exports = (_, argv) => ({
       filename: "remoteEntry.js",
       remotes: {
         gcrm: 'gcrm@http://localhost:8081/remoteEntry.js',
-        ghr: 'ghr@http://localhost:8082/remoteEntry.js',   
+        ghr: 'ghr@http://localhost:8082/remoteEntry.js', 
+        store: 'store@http://localhost:3100/remoteEntry.js',  
       },
       exposes: {},
       shared: {
         ...deps,
+        ...devDeps,
         react: {
           singleton: true,
           requiredVersion: deps.react,
