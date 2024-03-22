@@ -127,14 +127,12 @@ export default function Pricing() {
                       label={tier.subheader}
                       size="small"
                       sx={{
-                        background: (theme) =>
-                          theme.palette.mode === 'light' ? '' : 'none',
                         backgroundColor: 'primary.contrastText',
                         '& .MuiChip-label': {
-                          color: 'primary.dark',
+                          color: 'primary',
                         },
                         '& .MuiChip-icon': {
-                          color: 'primary.dark',
+                          color: 'primary',
                         },
                       }}
                     />

@@ -17,6 +17,10 @@ export const routes: RouteObject[] = [
     element: <Landing />,
   },
   {
+    path: '/login',
+    element: <Landing />,
+  },
+  {
     path: '/:companyName/login',
     element: <Login />,
   },
@@ -52,27 +56,4 @@ export const routes: RouteObject[] = [
     path: '*',
     element: <Navigate to="/" />,
   },
-  // {
-  //   path: '/',
-  //   element: <Layout />,
-  //   children: [
-  //     {
-  //       index: true,
-  //       element: <Navigate to={`/${ghrRoutingPrefix}`} />,
-  //     },
-  //     {
-  //       path: `/${ghrRoutingPrefix}/*`,
-  //       element: <Suspense fallback="Loading Ghr..."><GhrLazy /></Suspense>,
-  //     },
-  //     {
-  //       path: `/${ghrRoutingPrefix}/*`,
-  //       element: <Suspense fallback="Loading Ghr..."><GhrLazy /></Suspense>,
-  //     },
-  //     {
-  //       path: `/${gcrmRoutingPrefix}/*`,
-  //       element: <Suspense fallback="Loading Gcrm..."><GcrmLazy /></Suspense>,
-  //     },
-  //   ],
-  // }
-
 ];

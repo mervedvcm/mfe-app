@@ -28,32 +28,10 @@ function Copyright() {
 
 export default function Footer() {
   return (
-    <Container
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: { xs: 4, sm: 8 },
-        py: { xs: 8, sm: 10 },
-        textAlign: { sm: "center", md: "left" },
-      }}
-    >
+    <Container className="flex flex-col items-center gap-x-4 sm:gap-x-8 py-8 sm:py-10 sm:text-center">
       <Box
-        sx={{
-          display: "flex",
-          flexDirection: { xs: "column", sm: "row" },
-          width: "100%",
-          justifyContent: "space-between",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 4,
-            minWidth: { xs: "100%", sm: "60%" },
-          }}
-        >
+        className="flex flex-col gap-y-4 sm:flex-row w-full justify-between">
+        <Box className="flex flex-col gap-y-4" sx={{ minWidth: { xs: "100%", sm: "60%" }}}>
           <Box sx={{ width: { xs: "100%", sm: "60%" } }}>
             <Box sx={{ ml: "-15px" }}>
               <img

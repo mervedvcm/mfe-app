@@ -29,25 +29,20 @@ export default function AppAppBar() {
     setAnchorEl(event.currentTarget);
   };
 
-
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" elevation={0} sx={{ backgroundColor: 'inherit', borderBottom: "2px solid #D9D9D9"}} >
+    <Box className="flex-grow">
+      <AppBar
+        position="static"
+        elevation={0}
+        className="bg-transparent border-b-2 border-gray-300"
+      >
         <Toolbar>
           <Typography
             variant="h6"
             noWrap
             component="a"
             href="./"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
+            className="mr-2 hidden xs:flex md:flex font-mono font-bold tracking-wider text-inherit no-underline"
           >
             <img
               src="../../img/olcer.svg"
@@ -56,7 +51,7 @@ export default function AppAppBar() {
             />
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box className="flex-grow xs:flex md:hidden">
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -72,26 +67,16 @@ export default function AppAppBar() {
             noWrap
             component="a"
             href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
+            className="mr-2 flex xs:flex md:hidden flex-grow font-mono font-bold tracking-wider text-inherit no-underline"
           >
-            LOGO
           </Typography>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <Box className="flex-grow" />
+          <Box className="hidden xs:flex md:flex">
             <IconButton
               size="large"
               aria-label="show 4 new mails"
               color="inherit"
-              sx={{ color: '#6E6E6E' }}
+              className="text-gray-600"
             >
               <Badge badgeContent={4} color="error">
                 <MailIcon />
@@ -101,7 +86,7 @@ export default function AppAppBar() {
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
-              sx={{ color: '#6E6E6E' }}
+              className="text-gray-600"
             >
               <Badge badgeContent={17} color="error">
                 <NotificationsIcon />
@@ -114,12 +99,12 @@ export default function AppAppBar() {
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
-              sx={{ color: '#6E6E6E' }}
+              className="text-gray-600"
             >
               <AccountCircle />
             </IconButton>
           </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
+          <Box className="flex xs:flex md:hidden">
             <IconButton
               size="large"
               aria-label="show more"

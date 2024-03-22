@@ -7,7 +7,7 @@ import {
     Typography,
     Switch,
 } from '@mui/material';
-import "../../../public/css/Settings.scss";
+
 
 export interface SettingsT {
     autoPlay: boolean,

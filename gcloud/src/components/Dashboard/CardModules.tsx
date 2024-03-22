@@ -14,7 +14,7 @@ interface CardModulesProps {
 
 const CardModules: React.FC<CardModulesProps> = ({ image, title, onClick, disabled }) => {
   return (
-    <Card sx={{}} className='m-5 border !rounded-2xl' onClick={onClick} style={{ cursor: disabled ? 'not-allowed' : 'pointer' }}>
+    <Card className='m-5 border !rounded-2xl' onClick={onClick} style={{ cursor: disabled ? 'not-allowed' : 'pointer' }}>
       <CardActionArea disabled={disabled}>
         <CardMedia
           component="img"
@@ -23,7 +23,7 @@ const CardModules: React.FC<CardModulesProps> = ({ image, title, onClick, disabl
           alt={title}
         />
         <CardContent>
-          <Typography  className='text-[#0DA6F6] !text-lg pl-5' gutterBottom variant="h5" component="div">
+          <Typography  className='text-[#0DA6F6] !text-lg pl-5 font-sans' gutterBottom variant="h5" component="div">
             {title}
           </Typography>
         </CardContent>
