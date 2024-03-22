@@ -29,21 +29,20 @@ function Copyright() {
 export default function Footer() {
   return (
     <Container className="flex flex-col items-center gap-x-4 sm:gap-x-8 py-8 sm:py-10 sm:text-center">
-      <Box
-        className="flex flex-col gap-y-4 sm:flex-row w-full justify-between">
-        <Box className="flex flex-col gap-y-4" sx={{ minWidth: { xs: "100%", sm: "60%" }}}>
-          <Box sx={{ width: { xs: "100%", sm: "60%" } }}>
-            <Box sx={{ ml: "-15px" }}>
+      <Box className="flex flex-col gap-y-4 sm:flex-row w-full justify-between pb-10">
+        <Box className="flex flex-col gap-y-4 sm:w-3/5">
+          <Box className="sm:w-3/5">
+            <Box className="-ml-15px mb-2">
               <img
                 src="../../img/gcloud.svg"
                 style={logoStyle}
                 alt="logo of gcloud"
               />
             </Box>
-            <Typography variant="body2" fontWeight={600} gutterBottom>
+            <Typography variant="body2" fontWeight={600} gutterBottom className="text-left">
               Newsletter
             </Typography>
-            <Typography variant="body2" color="text.secondary" mb={2}>
+            <Typography variant="body2" color="text.secondary" mb={2} className="text-left">
               Subscribe to our newsletter for weekly updates and promotions.
             </Typography>
             <Stack direction="row" spacing={1} useFlexGap>
@@ -63,20 +62,14 @@ export default function Footer() {
               <Button
                 variant="contained"
                 color="primary"
-                sx={{ flexShrink: 0 }}
+                className="flex-shrink-0 bg-[#1976d2]"
               >
                 Subscribe
               </Button>
             </Stack>
           </Box>
         </Box>
-        <Box
-          sx={{
-            display: { xs: "none", sm: "flex" },
-            flexDirection: "column",
-            gap: 1,
-          }}
-        >
+        <Box className="flex flex-col gap-y-1">
           <Typography variant="body2" fontWeight={600}>
             Product
           </Typography>
@@ -90,13 +83,7 @@ export default function Footer() {
             Pricing
           </Link>
         </Box>
-        <Box
-          sx={{
-            display: { xs: "none", sm: "flex" },
-            flexDirection: "column",
-            gap: 1,
-          }}
-        >
+        <Box className="flex flex-col gap-y-1">
           <Typography variant="body2" fontWeight={600}>
             Company
           </Typography>
@@ -110,13 +97,7 @@ export default function Footer() {
             Press
           </Link>
         </Box>
-        <Box
-          sx={{
-            display: { xs: "none", sm: "flex" },
-            flexDirection: "column",
-            gap: 1,
-          }}
-        >
+        <Box className="flex flex-col gap-y-1">
           <Typography variant="body2" fontWeight={600}>
             Legal
           </Typography>
@@ -131,21 +112,12 @@ export default function Footer() {
           </Link>
         </Box>
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          pt: { xs: 4, sm: 8 },
-          width: "100%",
-          borderTop: "1px solid",
-          borderColor: "divider",
-        }}
-      >
+      <Box className="flex justify-between pt-8 w-full border-t border-divider text-left">
         <div>
           <Link color="text.secondary" href="#">
             Privacy Policy
           </Link>
-          <Typography display="inline" sx={{ mx: 0.5, opacity: 0.5 }}>
+          <Typography display="inline" className="mx-0.5 opacity-50">
             &nbsp;•&nbsp;
           </Typography>
           <Link color="text.secondary" href="#">
@@ -158,15 +130,13 @@ export default function Footer() {
           justifyContent="left"
           spacing={1}
           useFlexGap
-          sx={{
-            color: "text.secondary",
-          }}
+          className="text-secondary"
         >
           <IconButton
             color="inherit"
             href="https://github.com/"
             aria-label="GitHub"
-            sx={{ alignSelf: "center" }}
+            className="self-center"
           >
             <FacebookIcon />
           </IconButton>
@@ -174,7 +144,7 @@ export default function Footer() {
             color="inherit"
             href="https://twitter.com/"
             aria-label="X"
-            sx={{ alignSelf: "center" }}
+            className="self-center"
           >
             <TwitterIcon />
           </IconButton>
@@ -182,7 +152,7 @@ export default function Footer() {
             color="inherit"
             href="https://www.linkedin.com/"
             aria-label="LinkedIn"
-            sx={{ alignSelf: "center" }}
+            className="self-center"
           >
             <LinkedInIcon />
           </IconButton>

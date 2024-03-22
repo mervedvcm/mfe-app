@@ -53,34 +53,13 @@ const items = [
 
 export default function Highlights() {
   return (
-    <Box
-      id="highlights"
-      sx={{
-        pt: { xs: 4, sm: 12 },
-        pb: { xs: 8, sm: 16 },
-        color: 'white',
-        bgcolor: '#06090a',
-      }}
-    >
-      <Container
-        sx={{
-          position: 'relative',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: { xs: 3, sm: 6 },
-        }}
-      >
-        <Box
-          sx={{
-            width: { sm: '100%', md: '60%' },
-            textAlign: { sm: 'left', md: 'center' },
-          }}
-        >
+    <Box id="highlights" className="pt-12 pb-16 text-white bg-[#06090a]">
+      <Container className="relative flex flex-col items-center gap-6">
+        <Box className="w-3/5 text-center">
           <Typography component="h2" variant="h4">
             Highlights
           </Typography>
-          <Typography variant="body1" sx={{ color: 'grey.400' }}>
+          <Typography variant="body1" className="text-gray-400">
             Explore why our product stands out: adaptability, durability,
             user-friendly design, and innovation. Enjoy reliable customer support and
             precision in every detail.
@@ -95,21 +74,14 @@ export default function Highlights() {
                 component={Card}
                 spacing={1}
                 useFlexGap
-                sx={{
-                  p: 3,
-                  height: '100%',
-                  border: '1px solid',
-                  borderColor: 'grey.800',
-                  background: 'transparent',
-                  backgroundColor: 'grey.900',
-                }}
+                className="p-3 m-1 h-full border border-gray-800 bg-transparent bg-[rgb(9, 14, 16)]"
               >
-                <Box sx={{ opacity: '50%' }}>{item.icon}</Box>
+                <Box className="opacity-50">{item.icon}</Box>
                 <div>
                   <Typography fontWeight="medium" gutterBottom>
                     {item.title}
                   </Typography>
-                  <Typography variant="body2" sx={{ color: 'grey.400' }}>
+                  <Typography variant="body2" className="text-gray-400">
                     {item.description}
                   </Typography>
                 </div>

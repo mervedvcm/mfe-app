@@ -15,7 +15,7 @@ export default function LandingPage() {
       <CssBaseline />
       <AppAppBar />
       <Hero />
-      <Box sx={{ bgcolor: "background.default" }}>
+      <Box>
         <Features />
         <Divider />
         <Highlights />

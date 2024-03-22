@@ -41,7 +41,7 @@ function AppAppBar() {
     <div>
       <AppBar
         position="fixed"
-        className="shadow-none bg-transparent bg-none mt-2"
+        className="shadow-none bg-transparent bg-none mt-5"
       >
         <Container maxWidth="lg">
           <Toolbar variant="regular" className="appBar-landing ">
