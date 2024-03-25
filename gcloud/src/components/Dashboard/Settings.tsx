@@ -7,7 +7,7 @@ import {
     Typography,
     Switch,
 } from '@mui/material';
-import "../../../public/css/Settings.scss";
+
 
 export interface SettingsT {
     autoPlay: boolean,
@@ -24,7 +24,7 @@ export interface SettingsT {
 
 export const DefaultSettingsT: SettingsT = {
     autoPlay: true,
-    animation: "fade",
+    animation: "slide",
     indicators: true,
     duration: 500,
     navButtonsAlwaysVisible: false,

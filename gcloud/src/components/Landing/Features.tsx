@@ -47,7 +47,7 @@ export default function Features() {
   const selectedFeature = items[selectedItemIndex];
 
   return (
-    <Container id="features" sx={{ py: { xs: 8, sm: 16 } }}>
+    <Container id="features" className="py-8 sm:py-16">
       <Grid container spacing={6}>
         <Grid item xs={12} md={6}>
           <div>
@@ -57,56 +57,36 @@ export default function Features() {
             <Typography
               variant="body1"
               color="text.secondary"
-              sx={{ mb: { xs: 2, sm: 4 } }}
+              className="mb-2 sm:mb-4"
             >
               Here you can provide a brief overview of the key features of the
               product. For example, you could list the number of features, the
               types of features, add-ons, or the benefits of the features.
             </Typography>
           </div>
-          <Grid
-            container
-            item
-            gap={1}
-            sx={{ display: { xs: "auto", sm: "none" } }}
-          >
+          <Grid container item gap={1} className="hidden xs:flex sm:hidden">
             {items.map(({ title }, index) => (
               <Chip
                 key={index}
                 label={title}
                 onClick={() => handleItemClick(index)}
-                sx={{
-                  borderColor:
-                    selectedItemIndex === index ? "primary.light" : "",
-                  backgroundColor:
-                    selectedItemIndex === index
-                      ? "primary.main"
-                      : "transparent",
-                  "& .MuiChip-label": {
-                    color: selectedItemIndex === index ? "#fff" : "",
-                  },
-                }}
+                className={`border-primary-light ${
+                  selectedItemIndex === index
+                    ? "bg-primary-main text-white"
+                    : "bg-transparent"
+                }`}
               />
             ))}
           </Grid>
           <Box
             component={Card}
             variant="outlined"
-            sx={{
-              display: { xs: "auto", sm: "none" },
-              mt: 4,
-            }}
+            className="hidden xs:flex sm:hidden mt-4"
           >
             <Box
-              sx={{
-                backgroundImage: items[selectedItemIndex].image,
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                minHeight: 280,
-              }}
+              className={`bg-cover bg-center bg-no-repeat h-280 ${items[selectedItemIndex].image}`}
             />
-            <Box sx={{ px: 2, pb: 2 }}>
+            <Box className="px-2 pb-2">
               <Typography
                 color="text.primary"
                 variant="body2"
@@ -117,7 +97,7 @@ export default function Features() {
               <Typography
                 color="text.secondary"
                 variant="body2"
-                sx={{ my: 0.5 }}
+                className="my-0.5"
               >
                 {selectedFeature.description}
               </Typography>
@@ -125,17 +105,12 @@ export default function Features() {
                 color="primary"
                 variant="body2"
                 fontWeight="bold"
-                sx={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  "& > svg": { transition: "0.2s" },
-                  "&:hover > svg": { transform: "translateX(2px)" },
-                }}
+                className="inline-flex items-center hover:translate-x-2"
               >
                 <span>Learn more</span>
                 <ChevronRightRoundedIcon
                   fontSize="small"
-                  sx={{ mt: "1px", ml: "2px" }}
+                  className="mt-1 ml-2"
                 />
               </Link>
             </Box>
@@ -146,7 +121,7 @@ export default function Features() {
             alignItems="flex-start"
             spacing={2}
             useFlexGap
-            sx={{ width: "100%", display: { xs: "none", sm: "flex" } }}
+            className="w-full hidden xs:flex sm:flex"
           >
             {items.map(({ icon, title, description }, index) => (
               <Card
@@ -154,52 +129,13 @@ export default function Features() {
                 variant="outlined"
                 component={Button}
                 onClick={() => handleItemClick(index)}
-                sx={{
-                  p: 3,
-                  height: "fit-content",
-                  width: "100%",
-                  background: "none",
-                  backgroundColor:
-                    selectedItemIndex === index ? "action.selected" : undefined,
-                  borderColor: (theme) => {
-                    if (theme.palette.mode === "light") {
-                      return selectedItemIndex === index
-                        ? "primary.light"
-                        : "grey.200";
-                    }
-                    return selectedItemIndex === index
-                      ? "primary.dark"
-                      : "grey.800";
-                  },
-                }}
+                className={`p-3 fit-content w-full bg-none ${
+                  selectedItemIndex === index ? "bg-action-selected" : ""
+                }`}
               >
-                <Box
-                  sx={{
-                    width: "100%",
-                    display: "flex",
-                    textAlign: "left",
-                    flexDirection: { xs: "column", md: "row" },
-                    alignItems: { md: "center" },
-                    gap: 2.5,
-                  }}
-                >
-                  <Box
-                    sx={{
-                      color: (theme) => {
-                        if (theme.palette.mode === "light") {
-                          return selectedItemIndex === index
-                            ? "primary.main"
-                            : "grey.300";
-                        }
-                        return selectedItemIndex === index
-                          ? "primary.main"
-                          : "grey.700";
-                      },
-                    }}
-                  >
-                    {icon}
-                  </Box>
-                  <Box sx={{ textTransform: "none" }}>
+                <Box className="flex flex-col md:flex-row md:items-center gap-2.5">
+                  <Box className="text-primary-main">{icon}</Box>
+                  <Box className="text-left">
                     <Typography
                       color="text.primary"
                       variant="body2"
@@ -210,7 +146,7 @@ export default function Features() {
                     <Typography
                       color="text.secondary"
                       variant="body2"
-                      sx={{ my: 0.5 }}
+                      className="my-0.5"
                     >
                       {description}
                     </Typography>
@@ -218,12 +154,7 @@ export default function Features() {
                       color="primary"
                       variant="body2"
                       fontWeight="bold"
-                      sx={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        "& > svg": { transition: "0.2s" },
-                        "&:hover > svg": { transform: "translateX(2px)" },
-                      }}
+                      className="inline-flex items-center hover:translate-x-2"
                       onClick={(event) => {
                         event.stopPropagation();
                       }}
@@ -231,7 +162,7 @@ export default function Features() {
                       <span>Learn more</span>
                       <ChevronRightRoundedIcon
                         fontSize="small"
-                        sx={{ mt: "1px", ml: "2px" }}
+                        className="mt-1 ml-2"
                       />
                     </Link>
                   </Box>
@@ -240,20 +171,10 @@ export default function Features() {
             ))}
           </Stack>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          md={6}
-          sx={{ display: { xs: "none", sm: "flex" }, width: "100%" }}
-        >
+        <Grid item xs={12} md={6} className="flex sm:w-full">
           <Card
             variant="outlined"
-            sx={{
-              height: "100%",
-              width: "100%",
-              display: { xs: "none", sm: "flex" },
-              pointerEvents: "none",
-            }}
+            className="w-full hidden xs:flex sm:flex flex-col items-center justify-center pointer-events-none"
           >
             <Box
               sx={{
@@ -263,7 +184,7 @@ export default function Features() {
                 backgroundSize: "contain",
                 backgroundImage: items[selectedItemIndex].image,
                 backgroundRepeat: "no-repeat",
-                backgroundPosition: "center"
+                backgroundPosition: "center",
               }}
             />
           </Card>

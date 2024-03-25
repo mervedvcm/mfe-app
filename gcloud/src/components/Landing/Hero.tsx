@@ -10,40 +10,19 @@ import Typography from "@mui/material/Typography";
 
 export default function Hero() {
   return (
-    <Box
-      id="hero"
-      sx={() => ({
-        width: "100%",
-        backgroundImage: "linear-gradient(180deg, #CEE5FD, #FFF)",
-        backgroundSize: "100% 20%",
-        backgroundRepeat: "no-repeat",
-      })}
-    >
-      <Container
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          pt: { xs: 14, sm: 20 },
-          pb: { xs: 8, sm: 12 },
-        }}
-      >
-        <Stack spacing={2} useFlexGap sx={{ width: { xs: "100%", sm: "70%" } }}>
+    <Box id="hero">
+      <Container className="flex flex-col items-center pt-32 pb-12">
+        <Stack spacing={2} useFlexGap className="w-70">
           <Typography
             component="h1"
             variant="h1"
-            sx={{
-              display: "flex",
-              flexDirection: { xs: "column", md: "row" },
-              alignSelf: "center",
-              textAlign: "center",
-            }}
+            className="flex flex-row self-center text-center"
           >
             Our latest&nbsp;
             <Typography
               component="span"
               variant="h1"
-              sx={{ color: "primary.main" }}
+              className="text-[#1976d2]"
             >
               products
             </Typography>
@@ -54,11 +33,11 @@ export default function Hero() {
             Elevate your experience with top-tier features and services.
           </Typography>
           <Stack
-            direction={{ xs: "column", sm: "row" }}
+            direction="row"
             alignSelf="center"
             spacing={1}
             useFlexGap
-            sx={{ pt: 2, width: { xs: "100%", sm: "auto" } }}
+            className="pt-2 w-auto"
           >
             <TextField
               id="outlined-basic"
@@ -69,17 +48,17 @@ export default function Hero() {
               placeholder="Your email address"
               inputProps={{
                 autoComplete: "off",
-                'aria-label': 'Enter your email address'
+                "aria-label": "Enter your email address",
               }}
             />
-            <Button variant="contained" color="primary">
+            <Button variant="contained" className=" bg-[#1976d2]">
               Start now
             </Button>
           </Stack>
           <Typography
             variant="caption"
             textAlign="center"
-            sx={{ opacity: 0.8 }}
+            className="opacity-80"
           >
             By clicking &quot;Start now&quot; you agree to our&nbsp;
             <Link href="#" color="primary">
@@ -90,19 +69,19 @@ export default function Hero() {
         </Stack>
         <Box
           id="image"
+          className="mt-10 self-center h-700 w-full rounded-lg border" 
           sx={() => ({
-            mt: { xs: 8, sm: 10 },
-            alignSelf: "center",
-            height: { xs: 200, sm: 700 },
-            width: "100%",
-            backgroundImage: "url(../../img/landing.png)",
-            backgroundSize: "cover",
-            borderRadius: "10px",
             outline: "1px solid",
             outlineColor: alpha("#BFCCD9", 0.5),
             boxShadow: `0 0 12px 8px ${alpha("#9CCCFC", 0.2)}`,
           })}
-        />
+        >
+          <img
+            src="../../img/landing.png"
+            alt="landing page"
+            className="w-full h-full object-cover rounded-lg"
+          />
+        </Box>
       </Container>
     </Box>
   );

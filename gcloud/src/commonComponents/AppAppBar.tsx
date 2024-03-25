@@ -13,12 +13,9 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 
-const logoStyle = {
-  width: "140px",
-  height: "auto",
-  cursor: "pointer",
-  margin: "0 25px",
-};
+import {InputLabel, MenuItem, FormControl} from '@mui/material';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+
 export default function AppAppBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   React.useState<null | HTMLElement>(null);
@@ -29,34 +26,64 @@ export default function AppAppBar() {
     setAnchorEl(event.currentTarget);
   };
 
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setAge(event.target.value);
+  };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" elevation={0} sx={{ backgroundColor: 'inherit', borderBottom: "2px solid #D9D9D9"}} >
-        <Toolbar>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="./"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
+    <Box className="flex-grow background-app">
+      <AppBar
+        position="static"
+        elevation={0}
+        className="bg-transparent border-b-2 border-gray-300"
+      >
+        <Toolbar className=" h-24">
+          <Box>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+              className=""
+            >
+              <img
+                className="border-solid border-r-[2px] border-r-[#D9D9D9] pr-[18px]"
+                src="/icon/home_ico.svg"
+                alt="Home"
+              />
+            </IconButton>
+          </Box>
+          <Box className="mr-2 hidden xs:flex md:flex font-mono font-bold tracking-wider text-inherit no-underline">
             <img
+              className="w-[150px] h-[50px] cursor-pointer"
               src="../../img/olcer.svg"
-              style={logoStyle}
               alt="logo of olcer"
             />
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          </Box>
+          <Box>
+            <FormControl sx={{ m: 1, minWidth: 120 }}>
+              <InputLabel id="company_select-label">Şirketler</InputLabel>
+              <Select
+                labelId="company_select-label"
+                id="company_select"
+                value={age}
+                label="Şirketler"
+                onChange={handleChange}
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
+              </Select>
+            </FormControl>
+          </Box>
+          <Box className="flex-grow xs:flex md:hidden">
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -72,26 +99,15 @@ export default function AppAppBar() {
             noWrap
             component="a"
             href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            LOGO
-          </Typography>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            className="mr-2 flex xs:flex md:hidden flex-grow font-mono font-bold tracking-wider text-inherit no-underline"
+          ></Typography>
+          <Box className="flex-grow" />
+          <Box className="hidden xs:flex md:flex">
             <IconButton
               size="large"
               aria-label="show 4 new mails"
               color="inherit"
-              sx={{ color: '#6E6E6E' }}
+              className="text-gray-600"
             >
               <Badge badgeContent={4} color="error">
                 <MailIcon />
@@ -101,7 +117,7 @@ export default function AppAppBar() {
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
-              sx={{ color: '#6E6E6E' }}
+              className="text-gray-600"
             >
               <Badge badgeContent={17} color="error">
                 <NotificationsIcon />
@@ -114,12 +130,12 @@ export default function AppAppBar() {
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
-              sx={{ color: '#6E6E6E' }}
+              className="text-gray-600"
             >
               <AccountCircle />
             </IconButton>
           </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
+          <Box className="flex xs:flex md:hidden">
             <IconButton
               size="large"
               aria-label="show more"
