@@ -13,12 +13,6 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 
-const logoStyle = {
-  width: "140px",
-  height: "auto",
-  cursor: "pointer",
-  margin: "0 25px",
-};
 export default function AppAppBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   React.useState<null | HTMLElement>(null);
@@ -36,7 +30,7 @@ export default function AppAppBar() {
         elevation={0}
         className="bg-transparent border-b-2 border-gray-300"
       >
-        <Toolbar>
+        <Toolbar className=" h-24">
           <Typography
             variant="h6"
             noWrap
@@ -44,9 +38,8 @@ export default function AppAppBar() {
             href="./"
             className="mr-2 hidden xs:flex md:flex font-mono font-bold tracking-wider text-inherit no-underline"
           >
-            <img
+            <img className="w-[150px] h-[50px] cursor-pointer"
               src="../../img/olcer.svg"
-              style={logoStyle}
               alt="logo of olcer"
             />
           </Typography>
@@ -68,8 +61,7 @@ export default function AppAppBar() {
             component="a"
             href="#app-bar-with-responsive-menu"
             className="mr-2 flex xs:flex md:hidden flex-grow font-mono font-bold tracking-wider text-inherit no-underline"
-          >
-          </Typography>
+          ></Typography>
           <Box className="flex-grow" />
           <Box className="hidden xs:flex md:flex">
             <IconButton

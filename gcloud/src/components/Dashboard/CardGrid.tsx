@@ -7,37 +7,37 @@ import { useNavigate } from "react-router-dom";
 const items = [
   {
     id: 1,
-    image: "../../img/crmCard.jpg",
+    image: "../../img/gCrmCard.png",
     title: "MODÜLE GİT",
     disabled: false, // Örnek kartın tıklanabilirlik durumu
   },
   {
     id: 2,
-    image: "../../img/hrCard.jpg",
+    image: "../../img/gHrCard.png",
     title: "MODÜLE GİT",
     disabled: false, // Örnek kartın tıklanabilirlik durumu
   },
   {
     id: 3,
-    image: "../../img/rentCard.jpg",
+    image: "../../img/gRentCard.png",
     title: "DETAYA GİT",
     disabled: true, // Örnek kartın tıklanabilirlik durumu
   },
   {
     id: 4,
-    image: "../../img/chargeCard.jpg",
+    image: "../../img/gChargeCard.png",
     title: "DETAYA GİT",
     disabled: true, // Örnek kartın tıklanabilirlik durumu
   },
   {
     id: 5,
-    image: "../../img/controlCard.jpg",
+    image: "../../img/gControlCard.png",
     title: "DETAYA GİT",
     disabled: true, // Örnek kartın tıklanabilirlik durumu
   },
   {
     id: 6,
-    image: "../../img/cardCard.jpg",
+    image: "../../img/gCardCard.png",
     title: "DETAYA GİT",
     disabled: true, // Örnek kartın tıklanabilirlik durumu
   },

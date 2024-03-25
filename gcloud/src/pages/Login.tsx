@@ -3,13 +3,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useLoginMutation, setCredentials } from "store/store";
 import { useDispatch } from "react-redux";
 import Cookies from "js-cookie";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 
 export default function Login() {
@@ -60,15 +57,15 @@ export default function Login() {
           md={6}
           className="flex items-center justify-center"
         >
-          <Box className="px-10 py-16 bg-white flex items-center w-1/2 border rounded-lg">
+          <Box className="px-8 py-16 bg-white flex items-center w-1/2 border rounded-3xl shadow-lg">
             <Box
               component="form"
               onSubmit={handleSubmit}
               noValidate
               className="mt-1 w-full"
             >
-              <Box className="mb-3">
-                <Typography className="text-sm font-semibold">Kullanıcı Adı</Typography>
+              <Box className="mb-5">
+                <Typography className="text-sm font-semibold mb-3">Kullanıcı Adı</Typography>
                 <TextField
                   required
                   fullWidth
@@ -78,8 +75,8 @@ export default function Login() {
                   size="small"
                 />
               </Box>
-              <Box className="mb-3">
-                <Typography className="text-sm font-semibold">Şifre</Typography>
+              <Box className="mb-5">
+                <Typography className="text-sm font-semibold mb-3">Şifre</Typography>
                 <TextField
                   required
                   fullWidth
@@ -94,7 +91,7 @@ export default function Login() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                className="text-sm font-semibold bg-[#7BAE42]"
+                className="text-sm font-semibold bg-[#7BAE42] h-12 hover:bg-[#7BAE42]"
               >
                 GİRİŞ YAP
               </Button>
@@ -106,7 +103,7 @@ export default function Login() {
           xs={false}
           sm={4}
           md={6}
-          className="bg-background flex items-center justify-center"
+          className="bg-background flex items-center justify-left"
         >
           <img src="../img/logoLogin.png" alt="Company Logo" />
         </Grid>
