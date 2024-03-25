@@ -43,12 +43,12 @@ export default function Login() {
   };
 
   return (
-    <div className="bg-background min-h-screen flex justify-center items-center">
+    <div className="background-app min-h-screen flex justify-center items-center">
       <Grid
         container
         component="main"
         maxWidth="xs"
-        className="bg-background h-screen"
+        className="h-screen"
       >
         <Grid
           item
@@ -103,7 +103,7 @@ export default function Login() {
           xs={false}
           sm={4}
           md={6}
-          className="bg-background flex items-center justify-left"
+          className="flex items-center justify-left"
         >
           <img src="../img/logoLogin.png" alt="Company Logo" />
         </Grid>

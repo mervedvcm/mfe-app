@@ -24,21 +24,20 @@ const CardModules: React.FC<CardModulesProps> = ({
       onClick={onClick}
       style={{ cursor: disabled ? "not-allowed" : "pointer" }}
     >
-      <CardActionArea disabled={disabled}>
-        <img
-          src={image}
-          alt={title}
-          className="h-10 max-h-10 "
-        />
-        <CardContent className="absolute bottom-5 left-5 h-3 w-auto">
+      <CardActionArea disabled={disabled} className="relative">
+        <div className="absolute top-10 left-10">
+          <img src={image} alt={title} className="h-10 max-h-10 " />
+        </div>
+        <CardContent className="absolute bottom-10 left-10 w-auto p-0 flex items-center">
           <Typography
-            className="text-[#0DA6F6] text-lg pl-5"
+            className="text-[#0DA6F6] text-base font-bold m-0"
             gutterBottom
             variant="h5"
             component="div"
           >
             {title}
           </Typography>
+          <img src="/icon/arrow_ico.svg" alt="Arrow Icon" className="ml-4"/>
         </CardContent>
       </CardActionArea>
     </Card>

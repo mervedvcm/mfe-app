@@ -1,5 +1,4 @@
 import * as React from "react";
-import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import AppAppBar from "../components/Landing/AppAppBar";
@@ -12,17 +11,18 @@ import Footer from "../components/Landing/Footer";
 export default function LandingPage() {
   return (
     <>
-      <CssBaseline />
-      <AppAppBar />
-      <Hero />
-      <Box>
-        <Features />
-        <Divider />
-        <Highlights />
-        <Divider />
-        <Pricing />
-        <Divider />
-        <Footer />
+      <Box className="background-landing">
+        <AppAppBar />
+        <Hero />
+        <Box>
+          <Features />
+          <Divider />
+          <Highlights />
+          <Divider />
+          <Pricing />
+          <Divider />
+          <Footer />
+        </Box>
       </Box>
     </>
   );

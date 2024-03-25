@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 
 export default function Hero() {
   return (
-    <Box id="hero" className="background-landing">
+    <Box id="hero">
       <Container className="flex flex-col items-center pt-32 pb-12">
         <Stack spacing={2} useFlexGap className="w-70">
           <Typography

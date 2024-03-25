@@ -7,7 +7,17 @@
 @use "../../../public/css/Settings.scss";
 
 body {
+  
+}
+.background-app{
   background-color: #F3F2F2;
+}
+
+.background-landing {
+  width: 100%;
+  background-image: linear-gradient(180deg, #CEE5FD, #FFF);
+  background-size: 100% 20%;
+  background-repeat: no-repeat;
 }
 
 .appBar-landing {
@@ -27,9 +37,3 @@ body {
     4px 4px 12px -2.5px rgba(85, 166, 246, 0.15);
 }
 
-.background-landing {
-  width: 100%;
-  background-image: linear-gradient(180deg, #CEE5FD, #FFF);
-  background-size: 100% 20%;
-  background-repeat: no-repeat;
-}
